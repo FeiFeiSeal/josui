@@ -1,0 +1,158 @@
+{
+  "apiError": {
+    "forgetPassword": {
+      "tooManyTimesReset": "您在短時間內要重置密碼的次數過多，請稍後再試",
+      "accountInactive": "帳號非有效狀態，請聯繫客服人員處理",
+      "codeInvalidOrExpired": "重置碼錯誤或已失效",
+      "abnormalAccount": "異常的帳號，無法完成重置密碼",
+      "idleTooLong": "閒置時間過長，請重新進行驗證"
+    },
+    "signup": {
+      "accountAlreadyRegistered": "帳號已由其他用戶註冊",
+      "nameNotFilled": "姓名未填寫",
+      "emailNotFilled": "電子郵件未填寫",
+      "accountNotFilled": "帳號未填寫",
+      "passwordNotFilled": "密碼未填寫",
+      "codeInvalidOrExpired": "驗證碼錯誤或已失效"
+    },
+    "signin": {
+      "accountOrPasswordError": "帳號或密碼錯誤",
+      "accountInactive": "帳號非有效狀態，請聯繫客服人員處理",
+      "applicationNotFound": "授權的系統不存在",
+      "applicationPermissionDenied": "無應用系統權限",
+      "accountNotVerified": "帳號尚未完成認證或審核",
+      "accountLocked": "帳號鎖定中，請聯繫客服人員處理"
+    },
+    "verifyEmail": {
+      "invalidCode": "錯誤的驗證碼",
+      "alreadyVerified": "您已驗證過此驗證信",
+      "expired": "驗證信已過期",
+      "accountInactive": "您的帳號已停用，請聯繫客服人員處理",
+      "accountAlreadyVerified": "您的帳號不需再進行驗證"
+    },
+    "exception": {
+      "systemError": "系統發生錯誤，請聯繫系統管理員處理，或稍候再重試",
+      "lengthExceeded": "輸入內容超過限制(最大限度為{number}字元)，請縮減內容後重新提交"
+    }
+  },
+  "forgetPassword": {
+    "pageTitle": "忘記密碼",
+    "accountSignIn": "帳號登入",
+    "code": "重置碼",
+    "reset": "重設密碼",
+    "newPassword": "新密碼",
+    "newPasswordConfirm": "再次輸入新密碼",
+    "resetPasswordDone": "密碼重設完成",
+    "hint": {
+      "inputAccount": "請輸入您的帳號",
+      "inputCode": "請輸入 {number} 位數字重置碼",
+      "sendEmail": "系統已將重置信件寄至您的郵件信箱",
+      "checkEmail": "請至您的信箱收取信件完成重置",
+      "checkSpam": "若沒有收到信件，請檢查垃圾郵件是否誤判為垃圾信件",
+      "inputNewPassword": "請輸入新密碼",
+      "newPasswordRule": "請填寫 6 到 64 字元，僅能使用英文、數字及單引號、雙引號 (＂ ʼ )以外的特殊符號",
+      "newPasswordSame": "新密碼與再次輸入新密碼需相同",
+      "startUseNewPassword": "您可以開始使用新密碼登入系統"
+    }
+  },
+  "global": {
+    "common": {
+      "account": "帳號",
+      "password": "密碼",
+      "name": "姓名",
+      "email": "電子郵件",
+      "signIn": "登入",
+      "signOut": "登出",
+      "signUp": "註冊"
+    },
+    "brand": {
+      "tracle": {
+        "platform": "Tracle 垃可"
+      }
+    },
+    "action": {
+      "done": "完成",
+      "confirm": "確認",
+      "cancel": "取消",
+      "back": "返回",
+      "next": "下一步",
+      "submit": "送出",
+      "verify": "驗證",
+      "reset": "重設"
+    },
+    "footer": {
+      "copyright": "© 2023-{year} 解放生活股份有限公司 版權所有"
+    },
+    "privacy": "個人資料隱私權聲明",
+    "terms": "垃可帳號使用須知"
+  },
+  "privacy": {
+    "pageTitle": "垃可帳號使用須知"
+  },
+  "signin": {
+    "pageTitle": "帳號登入",
+    "forgetPassword": "忘記密碼",
+    "notHaveAccount": "還沒有帳號嗎？",
+    "applyAccount": "申請帳號",
+    "applicationPermissionDenied": "您尚未被允許使用此應用程式",
+    "managementSystemPermissionDenied": "您尚未被允許使用管理系統"
+  },
+  "signup": {
+    "hint": {
+      "name": "請填寫真實姓名，最多 32 個字",
+      "email": "請填寫真實使用的信箱，平台將會透過此信箱寄送註冊驗證信",
+      "account": "請填寫 6 到 32 個字元，僅能使用英文、數字及. {'@'} + - 符號",
+      "password": "請填寫 6 到 64 字元，僅能使用英文、數字及單引號、雙引號 (＂ ʼ )以外的特殊符號",
+      "inputCode": "請輸入 {number} 位數字驗證碼",
+      "sendEmail": "系統已將驗證信件寄至您的郵件信箱",
+      "checkEmail": "請至您的信箱收取信件完成驗證",
+      "checkSpam": "若沒有收到信件，請檢查垃圾郵件是否誤判為垃圾信件"
+    },
+    "code": "驗證碼",
+    "pageTitle": "註冊帳號",
+    "alreadyHaveAccount": "已經有帳號了嗎？",
+    "readAndAgree": "本人已詳閱並同意",
+    "almostDone": "快要完成了！",
+    "done": "註冊帳號完成！",
+    "reSignin": "請重新登入",
+    "backToSignin": "返回登入頁面"
+  },
+  "validatorError": {
+    "required": {
+      "notEmpty": "{field} 不可為空"
+    },
+    "integer": {
+      "range": "{field} 須為 {min} - {max} 的整數"
+    },
+    "length": {
+      "max": "{field} 不能大於 {length} 個字元",
+      "min": "{field} 不能少於 {length} 個字元"
+    },
+    "account": {
+      "notEmpty": "帳號不可為空",
+      "minLength": "帳號不可少於 {length} 字元",
+      "maxLength": "帳號不可大於 {length} 字元",
+      "illegalFormat": "帳號格式不符"
+    },
+    "password": {
+      "notEmpty": "密碼不可為空",
+      "minLength": "密碼不可少於 {length} 字元",
+      "maxLength": "密碼不可大於 {length} 字元",
+      "illegalFormat": "密碼格式不符",
+      "notMatch": "密碼不一致"
+    },
+    "email": {
+      "notEmpty": "信箱不可為空",
+      "illegalFormat": "信箱格式不符",
+      "maxLength": "信箱不可大於 {length} 字元"
+    },
+    "name": {
+      "notEmpty": "姓名不可為空",
+      "maxLength": "姓名不可大於 {length} 字元"
+    },
+    "phone": {
+      "notEmpty": "行動電話不可為空",
+      "illegalFormat": "行動電話格式不符"
+    }
+  }
+}

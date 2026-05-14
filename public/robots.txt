@@ -1,0 +1,13 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://josui.design/sitemap.xml
