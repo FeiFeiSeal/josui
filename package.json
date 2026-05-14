@@ -10,13 +10,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "react:release": "tsc -b && vite build && ./release-merge.sh"
+    "preview": "npm run build && wrangler dev",
+    "react:release": "tsc -b && vite build && ./release-merge.sh",
+    "deploy": "npm run build && wrangler deploy"
   },
   "overrides": {
     "react-is": "^19.0.0-rc-69d4b800-20241021"
   },
   "dependencies": {
+    "@daypicker/react": "^10.0.0",
     "@radix-ui/react-avatar": "^1.1.9",
     "@radix-ui/react-dialog": "^1.1.13",
     "@radix-ui/react-label": "^2.1.2",
@@ -40,7 +42,6 @@
     "lucide-react": "^0.484.0",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
-    "@daypicker/react": "^10.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
     "react-router-dom": "^7.5.0",
@@ -53,7 +54,9 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.36.4",
     "@eslint/js": "^9.21.0",
+    "@stylelint/prettier-config": "^1.0.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.13.14",
     "@types/react": "^19.0.10",
@@ -64,13 +67,13 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "prettier": "^3.5.3",
-    "@stylelint/prettier-config": "^1.0.0",
     "stylelint": "^16.0.0",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-prettier": "^5.0.3",
     "stylelint-scss": "^6.11.1",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "wrangler": "^4.90.1"
   }
 }
