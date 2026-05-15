@@ -1,8 +1,8 @@
 /*
  * @Author:FeiFeiSeal
  * @Date:2025-05-07 16:24:33
- * @LastEditors:FeiFeiSeal
- * @LastEditTime:2025-05-15 14:38:18
+ * @LastEditors:Wendy
+ * @LastEditTime:2026-05-15 16:39:29
  * @Description:
  */
 import Color from 'colorjs.io'
@@ -216,12 +216,12 @@ export const ToolBar = (
         msUserSelect: 'none'
       }}
       className={clsx(
-        "max-lg:-mx-4 overflow-hidden rounded-md duration-150 ease-out border border-border sui-shadow z-50 backdrop-blur-md fixed bottom-5 shadow-ui",
-        "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/70 dark:before:from-black/70 before:via-15% before:via-transparent before:pointer-events-none",
-        "after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-l after:from-white/70 dark:after:from-black/70 after:via-15% after:via-transparent after:pointer-events-none",
+        "max-lg:-mx-4 overflow-hidden rounded-md duration-150 ease-out sui-shadow z-50 backdrop-blur-md fixed bottom-5 shadow-ui",
+        "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/40 dark:before:from-black/10 before:via-15% before:via-transparent before:pointer-events-none",
+        "after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-l after:from-white/30 dark:after:from-black/10 after:via-15% after:via-transparent after:pointer-events-none",
         isScrolling
-          ? "bg-white/80 dark:bg-black/80"
-          : "bg-white/100 dark:bg-black/100"
+          ? "bg-black/60 dark:bg-gray-900/80"
+          : "bg-black/80 dark:bg-gray-900/90"
       )}
     >
       <div className="p-2 py-6 lg:p-6 overflow-x-scroll  flex justify-start 2xl:justify-center">
