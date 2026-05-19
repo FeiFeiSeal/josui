@@ -2,27 +2,30 @@
  * @Author:FeiFeiSeal
  * @Date:2025-04-11 15:14:00
  * @LastEditors:Wendy
- * @LastEditTime:2026-05-19 13:23:39
+ * @LastEditTime:2026-05-19 14:38:48
  * @Description:
  */
 
-// import { useTranslation } from 'react-i18next'
+
+import { useState } from 'react'
 
 import * as SampleCard from '@/components/sample/sample-card'
 import { useTheme } from '@/components/theme-provider'
 import { ToolBar } from '@/components/Tool-bar'
 import { AdBlock } from '@/components/Ad-block'
+import { ThemeColorPanel } from '@/components/Theme-color-panel'
 
 function Home() {
-  // const { t, i18n } = useTranslation()
 
   const { theme, setTheme } = useTheme()
 
+  const [themePanelOpen, setThemePanelOpen] = useState(false)
+
   const handleState = () => {
     if (theme === 'dark') {
-      setTheme('light');
+      setTheme('light')
     } else {
-      setTheme('dark');
+      setTheme('dark')
     }
   }
 
@@ -42,8 +45,22 @@ function Home() {
           </h3>
         </div>
       </div>
-      <div className='relative container border-x border-foreground/15 border-dashed'>
-        <section className='flex flex-col gap-4 py-6 relative'>
+
+      <ToolBar
+        state={theme}
+        changeState={handleState}
+        themePanelOpen={themePanelOpen}
+        onThemePanelToggle={() => setThemePanelOpen((open) => !open)}
+      />
+
+      <ThemeColorPanel
+        open={themePanelOpen}
+        onOpenChange={setThemePanelOpen}
+        theme={theme}
+      />
+
+      <div className="relative container border-x border-foreground/15 border-dashed">
+        <section className="relative flex flex-col gap-4 py-6">
           <div className="grid grid-cols-1 gap-4 xl:grid-cols-5 ">
             <div className="grid grid-cols-1 gap-4 xl:col-span-4">
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 ">
@@ -95,7 +112,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <ToolBar state={theme} changeState={handleState} />
+        
       </div>  
     </div>
   )

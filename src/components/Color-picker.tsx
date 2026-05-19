@@ -21,9 +21,10 @@ interface ColorPickerProps {
   value: string
   onChange: (value: string) => void
   children?: React.ReactNode
+  popoverSide?: 'top' | 'right' | 'bottom' | 'left'
 }
 
-export function ColorPicker({ value, onChange, children }: ColorPickerProps) {
+export function ColorPicker({ value, onChange, children, popoverSide = 'bottom' }: ColorPickerProps) {
   const [color, setColor] = useState<Color>(new Color(value))
   const [alpha, setAlpha] = useState(1)
   const [activeFormat, setActiveFormat] = useState('hex')
@@ -107,7 +108,7 @@ export function ColorPicker({ value, onChange, children }: ColorPickerProps) {
           {children}
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-64 p-3 space-y-3 bg-popover" align="start">
+      <PopoverContent className="w-64 p-3 space-y-3 bg-popover" side={popoverSide} align="start">
         {/* 顏色預覽 */}
         <div
           className="w-full h-10 rounded-md border border-border shadow-sm"
