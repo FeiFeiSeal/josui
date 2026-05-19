@@ -2,7 +2,7 @@
  * @Author:FeiFeiSeal
  * @Date:2025-05-07 16:24:33
  * @LastEditors:Wendy
- * @LastEditTime:2026-05-19 14:23:08
+ * @LastEditTime:2026-05-19 20:36:06
  * @Description:
  */
 import clsx from 'clsx'
@@ -96,7 +96,7 @@ export const ToolBar = ({
   return (
     <div
       className={clsx(
-        'sticky top-0 z-40 -mx-4 border-b border-foreground/15 border-dashed backdrop-blur-md',
+        'sticky top-0 z-40 border-b border-foreground/15 border-dashed backdrop-blur-md',
           isScrolling
           ? 'bg-background/80'
           : '',
@@ -108,8 +108,8 @@ export const ToolBar = ({
           'container relative overflow-hidden duration-150 ease-out border-x border-foreground/15 border-dashed'
         )}
       >
-        <div className="relative flex justify-start overflow-x-auto p-2 py-4 lg:p-4 2xl:justify-center">
-          <div className="flex shrink-0 items-center gap-2 border-r px-4 sm:px-6">
+        <div className="relative flex flex-wrap gap-4 justify-start overflow-x-auto 2xl:justify-center">
+          <div className="flex shrink-0 items-center gap-2 border-r px-2">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -117,7 +117,7 @@ export const ToolBar = ({
                     variant="default"
                     onClick={onThemePanelToggle}
                     className={clsx(
-                      themePanelOpen && 'ring-2 ring-primary ring-offset-2 ring-offset-transparent'
+                      themePanelOpen && 'border shadow'
                     )}
                     aria-pressed={themePanelOpen}
                     aria-expanded={themePanelOpen}
@@ -165,7 +165,7 @@ export const ToolBar = ({
               </Tooltip>
             </TooltipProvider>
           </div>
-          <div className="flex items-center gap-2 border-r px-6">
+          <div className="flex flex-wrap items-center gap-2 border-r px-2">
             {colorTheme.map((themeItem) => (
               <Button
                 key={themeItem.key}
@@ -189,11 +189,11 @@ export const ToolBar = ({
                     />
                   ) : null}
                 </div>
-                {themeItem.key}
+                <span className="truncate max-sm:hidden">{themeItem.key}</span>
               </Button>
             ))}
           </div>
-          <ul className="flex justify-center gap-1 px-6">
+          <ul className="flex justify-center gap-1 px-2">
             {Array.from({ length: 5 }, (_, index) => index * 0.25).map((value) => (
               <li key={value}>
                 <Button

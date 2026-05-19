@@ -107,7 +107,7 @@ export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelPr
         type="button"
         aria-label="關閉色票面板"
         className={clsx(
-          'fixed inset-0 top-16 z-40 bg-black/40 transition-opacity duration-300 ease-out lg:hidden',
+          'fixed inset-0 top-0 z-40 bg-black/40 transition-opacity duration-300 ease-out lg:hidden',
           visible ? 'opacity-100' : 'pointer-events-none opacity-0'
         )}
         onClick={() => onOpenChange(false)}
@@ -118,8 +118,7 @@ export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelPr
         aria-modal="true"
         aria-label="Theme color editor"
         className={clsx(
-          'fixed left-0 top-16 z-50 flex w-[min(100vw-1rem,280px)] flex-col',
-          'h-[calc(100dvh-4rem)] max-h-[calc(100dvh-4rem)]',
+          'fixed left-0 top-0 bottom-0 z-50 flex w-[min(100vw-1rem,280px)] flex-col',
           'border-r border-foreground/15 border-dashed bg-background/95 shadow-lg backdrop-blur-md',
           'transition-transform duration-300 ease-out',
           visible ? 'translate-x-0' : '-translate-x-full'
