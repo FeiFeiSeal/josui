@@ -1,8 +1,8 @@
 /*
  * @Author:FeiFeiSeal
  * @Date:2025-04-11 15:14:00
- * @LastEditors:FeiFeiSeal
- * @LastEditTime:2025-05-27 17:48:09
+ * @LastEditors:Wendy
+ * @LastEditTime:2026-05-19 13:23:39
  * @Description:
  */
 
@@ -27,8 +27,8 @@ function Home() {
   }
 
   return (
-    <div className='animate-fade-in'>
-      <div className="border-b border-foreground/15 border-dashed bg-background/5 backdrop-blur-xs">
+    <div className='animate-fade-in bg-background/50 backdrop-blur-xs'>
+      <div className="border-b border-foreground/15 border-dashed ">
         <div className='container !py-14 border-x border-foreground/15 border-dashed'>
           <h2 className="max-lg:text-center text-[4vw] sm:text-[2.8vw] lg:text-[1.3vw] lg:text-left 2xl:text-xl/12">Style shadcn UI beautifully
             <p className='font-medium'>
