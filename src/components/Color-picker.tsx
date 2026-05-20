@@ -24,6 +24,35 @@ interface ColorPickerProps {
   popoverSide?: 'top' | 'right' | 'bottom' | 'left'
 }
 
+function toSrgbHex(color: Color, { withAlpha = false }: { withAlpha?: boolean } = {}) {
+  const srgb = color.to('srgb')
+  const hex = srgb.toString({ format: 'hex' })
+  if (withAlpha) return hex
+  return hex.length >= 7 ? hex.slice(0, 7) : hex
+}
+
+function formatColorCode(color: Color, format: string, alpha: number) {
+  const hasAlpha = alpha < 1
+
+  switch (format) {
+    case 'hex':
+      return toSrgbHex(color, { withAlpha: hasAlpha })
+    case 'rgb': {
+      const { r, g, b } = color.to('srgb')
+      const ri = Math.round(r * 255)
+      const gi = Math.round(g * 255)
+      const bi = Math.round(b * 255)
+      return hasAlpha
+        ? `rgba(${ri}, ${gi}, ${bi}, ${Number(alpha.toFixed(2))})`
+        : `rgb(${ri}, ${gi}, ${bi})`
+    }
+    case 'hsl':
+      return color.to('hsl').toString({ format: 'hsl' })
+    default:
+      return color.toString()
+  }
+}
+
 export function ColorPicker({ value, onChange, children, popoverSide = 'bottom' }: ColorPickerProps) {
   const [color, setColor] = useState<Color>(new Color(value))
   const [alpha, setAlpha] = useState(1)
@@ -66,8 +95,7 @@ export function ColorPicker({ value, onChange, children, popoverSide = 'bottom' 
   // 取 6 位 hex（不含 alpha），供 HexColorPicker 使用
   const hexValue = (() => {
     try {
-      const hex = color.toString({ format: 'hex' })
-      return hex.length >= 7 ? hex.slice(0, 7) : hex
+      return toSrgbHex(color)
     } catch {
       return '#000000'
     }
@@ -75,12 +103,7 @@ export function ColorPicker({ value, onChange, children, popoverSide = 'bottom' 
 
   const getColorCode = () => {
     try {
-      switch (activeFormat) {
-        case 'hex': return color.toString({ format: 'hex' })
-        case 'rgb': return color.toString({ format: 'rgb' })
-        case 'hsl': return color.toString({ format: 'hsl' })
-        default: return color.toString()
-      }
+      return formatColorCode(color, activeFormat, alpha)
     } catch {
       return ''
     }
@@ -102,7 +125,7 @@ export function ColorPicker({ value, onChange, children, popoverSide = 'bottom' 
       <PopoverTrigger asChild>
         <div className="flex gap-2 cursor-pointer">
           <div
-            className="w-6 h-6 rounded-full shadow border shrink-0"
+            className="w-6 h-6 rounded-sm shadow border shrink-0"
             style={{ backgroundColor: color.toString() }}
           />
           {children}

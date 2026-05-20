@@ -20,6 +20,7 @@ function Home() {
   const { theme, setTheme } = useTheme()
 
   const [themePanelOpen, setThemePanelOpen] = useState(false)
+  const [activeThemeKey, setActiveThemeKey] = useState('default')
 
   const handleState = () => {
     if (theme === 'dark') {
@@ -51,12 +52,15 @@ function Home() {
         changeState={handleState}
         themePanelOpen={themePanelOpen}
         onThemePanelToggle={() => setThemePanelOpen((open) => !open)}
+        activeTheme={activeThemeKey}
+        onThemeChange={setActiveThemeKey}
       />
 
       <ThemeColorPanel
         open={themePanelOpen}
         onOpenChange={setThemePanelOpen}
         theme={theme}
+        activeThemeKey={activeThemeKey}
       />
 
       <div className="relative container border-x border-foreground/15 border-dashed">

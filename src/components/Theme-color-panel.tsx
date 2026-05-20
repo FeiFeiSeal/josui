@@ -24,9 +24,10 @@ export type ThemeColorPanelProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   theme: ThemeMode
+  activeThemeKey?: string
 }
 
-export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelProps) {
+export function ThemeColorPanel({ open, onOpenChange, theme, activeThemeKey }: ThemeColorPanelProps) {
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
   const [themeColors, setThemeColors] = useState<
@@ -51,7 +52,7 @@ export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelPr
 
   useEffect(() => {
     if (open) setThemeColors(getColorRuleList())
-  }, [theme, open])
+  }, [theme, open, activeThemeKey])
 
   useEffect(() => {
     if (!open) return
@@ -125,7 +126,7 @@ export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelPr
         )}
       >
         <div className="flex shrink-0 items-center gap-1 border-b border-foreground/15 border-dashed px-2 py-2">
-          <p className="min-w-0 flex-1 truncate px-1 text-sm font-medium">Customize Theme</p>
+          <p className="min-w-0 flex-1 truncate px-1 text-md font-medium">Customize Theme</p>
           <Button
             type="button"
             variant="ghost"
@@ -142,7 +143,7 @@ export function ThemeColorPanel({ open, onOpenChange, theme }: ThemeColorPanelPr
           {colorEntries.map((color) => (
             <li
               key={`${color.key}-${effectiveTheme}`}
-              className="flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-muted/50"
+              className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted/50"
             >
               <ColorPicker
                 value={color.value}
