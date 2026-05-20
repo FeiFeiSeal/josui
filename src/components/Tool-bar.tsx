@@ -2,7 +2,7 @@
  * @Author:FeiFeiSeal
  * @Date:2025-05-07 16:24:33
  * @LastEditors:Wendy
- * @LastEditTime:2026-05-19 20:36:06
+ * @LastEditTime:2026-05-20 11:55:47
  * @Description:
  */
 import clsx from 'clsx'
@@ -25,21 +25,24 @@ export const ToolBar = ({
   changeState,
   themePanelOpen = false,
   onThemePanelToggle,
+  activeTheme = 'default',
+  onThemeChange,
 }: {
   className?: string
   state: 'light' | 'dark' | 'system'
   changeState?: () => void
   themePanelOpen?: boolean
   onThemePanelToggle?: () => void
+  activeTheme?: string
+  onThemeChange?: (key: string) => void
 }) => {
   const [activeRadius, setActiveRadius] = useState<number>(0.75)
-  const [activeTheme, setActiveTheme] = useState<string>('default')
   const [isScrolling, setIsScrolling] = useState(false)
   const scrollTimeout = useRef<number | null>(null)
 
   const changeTheme = (key: string) => {
     const theme = colorTheme.find((color) => color.key === key) ?? colorTheme[0]
-    setActiveTheme(key)
+    onThemeChange?.(key)
     getCSSCustomPropIndex().forEach((style) => {
       if (style.selectorText === ':root') {
         for (const key of style.style) {
@@ -108,7 +111,7 @@ export const ToolBar = ({
           'container relative overflow-hidden duration-150 ease-out border-x border-foreground/15 border-dashed'
         )}
       >
-        <div className="relative flex flex-wrap gap-4 justify-start overflow-x-auto 2xl:justify-center">
+        <div className="relative flex flex-wrap gap-4 justify-start overflow-x-auto 2xl:justify-center  py-2">
           <div className="flex shrink-0 items-center gap-2 border-r px-2">
             <TooltipProvider>
               <Tooltip>
@@ -136,7 +139,7 @@ export const ToolBar = ({
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline" size="icon" className="bg-white dark:bg-black">
+                      <Button variant="outline" size="icon" className="bg-background">
                         <Copy />
                       </Button>
                     </TooltipTrigger>
@@ -153,7 +156,7 @@ export const ToolBar = ({
                   <Button
                     variant="outline"
                     size="icon"
-                    className="bg-white dark:bg-black"
+                    className="bg-background"
                     onClick={changeState}
                   >
                     {state === 'light' ? <Sun /> : <Moon />}
@@ -171,7 +174,7 @@ export const ToolBar = ({
                 key={themeItem.key}
                 variant="outline"
                 onClick={() => changeTheme(themeItem.key)}
-                className="bg-white dark:bg-black"
+                className="bg-background"
               >
                 <div
                   className="size-4 rounded-full"
@@ -198,7 +201,7 @@ export const ToolBar = ({
               <li key={value}>
                 <Button
                   variant="outline"
-                  className={`w-10 bg-white dark:bg-black ${activeRadius === value && 'ring-2 ring-foreground/20 border border-foreground/50'}`}
+                  className={`w-10 bg-background ${activeRadius === value && 'ring-2 ring-foreground/20 border border-foreground/50'}`}
                   onClick={() => handleRadiusChange(value)}
                 >
                   {value}
