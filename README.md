@@ -1,57 +1,55 @@
+# JOSUI Official Website
 
+JOSUI 是一個為 shadcn/ui 與 Tailwind CSS 設計的主題色彩 Playground，讓設計師與前端工程師可以即時調整 UI token、預覽元件效果，並快速複製色彩設定到專案中。
 
+此專案以 React、TypeScript、Vite 與 Tailwind CSS v4 建構，重點放在互動式主題編輯、即時 UI 預覽、響應式介面與可維護的元件架構。
 
-# React + TypeScript + Vite
+## Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website: https://josui.space/
 
-Currently, two official plugins are available:
+## Project Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 建立可即時互動的主題色彩編輯器，支援 CSS variables 動態更新
+- 整合 shadcn/ui 風格元件，展示 Button、Card、Chart、Calendar、Tabs、Command 等 UI 狀態
+- 支援 Light / Dark theme，方便預覽不同主題下的視覺一致性
+- 實作色彩選擇器，支援 HEX、RGB、HSL 顯示與複製
+- 使用 React Router 建立首頁與隱私權頁面路由
+- 採用 Tailwind CSS v4 與 Radix UI 建構一致、可擴充的 UI 系統
+- 注重響應式排版，在桌機與行動裝置上維持良好瀏覽體驗
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Radix UI
+- React Router
+- i18next
+- colorjs.io
+- react-colorful
+- Recharts
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Theme Playground
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+使用者可以在網站中即時查看不同 UI 元件的主題色彩呈現，降低在設計與開發之間反覆調整 token 的成本。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Color Token Editor
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+透過側邊色票面板讀取目前頁面中的 CSS custom properties，並可即時修改對應色彩，讓調整結果立即反映在畫面上。
+
+### Color Format Support
+
+內建色彩選擇器支援 HEX、RGB、HSL 格式檢視，並提供一鍵複製，方便設計或開發流程使用。
+
+### Responsive UI
+
+首頁以 Grid 與 Tailwind utilities 建構多區塊展示版面，讓 UI preview 在不同螢幕尺寸下都能維持良好閱讀性。
+
+## Getting Started
+
+### Requirements
+
+```bash
+node >= 22.12.0
