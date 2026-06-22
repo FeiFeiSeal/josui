@@ -1,8 +1,8 @@
 /*
  * @Author:FeiFeiSeal
  * @Date:2025-05-29 16:00:00
- * @LastEditors:Wendy
- * @LastEditTime:2026-05-19 13:00:00
+ * @LastEditors:Hazel
+ * @LastEditTime:2026-06-03 02:10:37
  * @Description: 顏色選擇器組件
  */
 import Color from 'colorjs.io'
