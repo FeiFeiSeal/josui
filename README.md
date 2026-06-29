@@ -53,3 +53,13 @@ Website: https://josui.space/
 
 ```bash
 node >= 22.12.0
+```
+### Installation & Development
+```bash
+npm install
+npm run dev
+```
+### Build
+```bash
+npm run build
+```
