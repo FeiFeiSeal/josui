@@ -100,9 +100,13 @@ export const oklchToHSL = (oklchColor: string): { hsl: string, alpha: number } |
     
     // 取得透明度，若沒有則預設為 1
     const alpha = color.alpha !== undefined ? parseFloat(color.alpha.toFixed(2)) : 1;
-    
+
+    // 飽和度為 0 時（無彩色，如純白/純黑/灰階），色相在數學上沒有意義，
+    // colorjs.io 會依照 CSS Color 4 規範把 h 存成 NaN，這裡補回 0 避免輸出非法 CSS
+    const hue = Number.isNaN(hsl.h) ? 0 : Math.round(hsl.h)
+
     return {
-      hsl: `${Math.round(hsl.h)} ${Math.round(hsl.s)}% ${Math.round(hsl.l )}%`,
+      hsl: `${hue} ${Math.round(hsl.s)}% ${Math.round(hsl.l )}%`,
       alpha
     }
 
